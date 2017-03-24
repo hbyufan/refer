@@ -19,7 +19,9 @@
 		<module>hjz-refer</module>
 		<module>hjz-exception</module>
 		<module>hjz-database</module>
-    <module>hjz-support</module>
+	    <module>hjz-core</module>
+	    <module>hjz-support</module>
+	    <module>hjz-mq</module>
   </modules>
 
 	<build>
