@@ -1,4 +1,4 @@
-package com.hjz.mq.util;
+package com.hjz.response;
 
 /**
  * http请求返回码枚举
@@ -16,11 +16,7 @@ public enum ReturnCode {
 	/**
 	 * 数据重复
 	 */
-	REPEAT("repeat"),
-	/**
-	 * 含有中文正则
-	 */
-	REGEX_CHINESE(".*[\u4e00-\u9fa5].*");
+	REPEAT("repeat");
 
 	String value;
 

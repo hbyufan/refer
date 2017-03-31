@@ -1,4 +1,4 @@
-package com.hjz.mq.util;
+package com.hjz.utils;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
