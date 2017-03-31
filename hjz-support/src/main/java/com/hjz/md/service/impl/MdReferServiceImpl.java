@@ -10,11 +10,9 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.alibaba.fastjson.JSONObject;
 import com.hjz.database.repository.EntityNativeQuery;
 import com.hjz.md.bo.MdReferBO;
 import com.hjz.md.entity.MdReferEntity;
-import com.hjz.md.repository.MdReferBaseDao;
 import com.hjz.md.repository.MdReferDao;
 import com.hjz.md.service.MdReferService;
 
@@ -22,16 +20,17 @@ import com.hjz.md.service.MdReferService;
 public class MdReferServiceImpl implements MdReferService {
 	@Autowired
 	private MdReferDao mdReferDao;
-	@Autowired
-	private MdReferBaseDao mdReferBaseDao;
 
 	@Autowired
 	private EntityNativeQuery<MdReferEntity> query;
 
 	@Override
-	public JSONObject getReferInfo(String refercode) {
-		JSONObject jsonobj = mdReferDao.getMdrefer(refercode);
-		return jsonobj;
+	public MdReferBO getReferInfo(String refercode) {
+		MdReferEntity entity = mdReferDao.getMdrefer(refercode);
+		MdReferBO vo = new MdReferBO();
+		if(entity == null) return vo;
+		BeanUtils.copyProperties(entity, vo);
+		return vo;
 	}
 
 	@Override
@@ -63,7 +62,7 @@ public class MdReferServiceImpl implements MdReferService {
 						mdReferEntity.setReferId(mdMap.get(mdReferEntity.getBeanName()).getReferId());
 				}
 			}
-			mdReferBaseDao.save(entityLst);
+			mdReferDao.save(entityLst);
 		}
 	}
 
