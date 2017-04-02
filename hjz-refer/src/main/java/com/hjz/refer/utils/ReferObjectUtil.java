@@ -62,7 +62,7 @@ public class ReferObjectUtil {
 				valueparams.put("valueIds", valueIdBuffer.toString());
 				valueparams.put("referCode", referCode);
 				String url = supportUrlconstants.getSupportBaseUrl()
-						+ "/commonrefer/getrefervalueLst";
+						+ "commonrefer/getrefervalueLst";
 				RestTemplate restTemplate = new RestTemplate();
 				String jsonbackstr = restTemplate.getForObject(url, String.class, valueparams);
 				jsonArray = JSON.parseArray(jsonbackstr);

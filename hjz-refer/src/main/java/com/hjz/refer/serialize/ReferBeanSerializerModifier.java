@@ -32,7 +32,7 @@ public class ReferBeanSerializerModifier extends BeanSerializerModifier {
 //					AnnotatedMethod method=	(AnnotatedMethod)	writer.getMember();
 //					ReferSerialTransfer referSerialTransfer =	method.getAnnotated().getDeclaredAnnotation(ReferSerialTransfer.class);
 //					if (referSerialTransfer != null) { // 如果能得到注解，就将注解的value传入ReferSerializer
-//						writer.assignSerializer(new ReferSerializer(referSerialTransfer.referCode()));
+//						writer.assignSerializer(new ReferSerializer(referSerialTransfer.referCode()));//ReferSerializer 的父类的泛型要改成 Object
 //					}
 				}
 			}

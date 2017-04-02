@@ -5,8 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.hjz.controller.bo.PersonBO;
+import com.hjz.bo.PersonBO;
 import com.hjz.response.ObjectResponse;
 import com.hjz.response.ReturnCode;
 import com.hjz.service.IPersonService;
@@ -18,6 +19,8 @@ public class PersonController {
 	@Autowired
 	private IPersonService personService;
 	
+	@RequestMapping("findAllPersons")
+	@ResponseBody
 	public ObjectResponse<List<PersonBO>> findAllPersons() {
 		ObjectResponse<List<PersonBO>> result = new ObjectResponse<>();
 		List<PersonBO> bos = personService.findAllPersons();

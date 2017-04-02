@@ -17,8 +17,6 @@
 		</property>
 	</bean>
 	
-	<import resource="classpath*: app-context-mq.xml"/>
-
 	<context:component-scan base-package="com.hjz">
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
@@ -28,4 +26,6 @@
 	
 	<bean class="com.hjz.cache.config.CacheConfig"/>
 	<bean class="com.hjz.refer.context.ContextUtils"/>
+	
+	<import resource="classpath*:app-context-mq.xml"/>
 </beans>
