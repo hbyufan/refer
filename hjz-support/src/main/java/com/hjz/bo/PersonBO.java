@@ -2,9 +2,10 @@ package com.hjz.bo;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-
-import com.hjz.refer.annotation.ReferDeserialTransfer;
-import com.hjz.refer.annotation.ReferSerialTransfer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.hjz.refer.serialize.ReferDeserializer;
+import com.hjz.refer.serialize.ReferSerializer;
 
 public class PersonBO implements Serializable{
 
@@ -32,12 +33,12 @@ public class PersonBO implements Serializable{
 		this.dr = dr;
 	}
 	
-	@ReferSerialTransfer
+	@JsonSerialize(using = ReferSerializer.class)
 	public String getId() {
 		return id;
 	}
 	
-	@ReferDeserialTransfer
+	@JsonDeserialize(using = ReferDeserializer.class)
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -81,5 +82,4 @@ public class PersonBO implements Serializable{
 	public void setCode(String code) {
 		this.code = code;
 	}
-	
 }

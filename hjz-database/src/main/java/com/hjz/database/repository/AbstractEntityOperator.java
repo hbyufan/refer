@@ -81,7 +81,6 @@ public abstract class AbstractEntityOperator<T extends SuperEntity> {
 	/**
 	 * 考虑动态创建的表
 	 * 
-	 * @author xg
 	 * @param tableName
 	 */
 	protected void setTableName(String tableName){
