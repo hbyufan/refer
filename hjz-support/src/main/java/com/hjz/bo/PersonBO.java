@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.hjz.refer.annotation.ReferDeserialTransfer;
+import com.hjz.refer.annotation.ReferSerialTransfer;
 import com.hjz.refer.serialize.ReferDeserializer;
 import com.hjz.refer.serialize.ReferSerializer;
 
@@ -33,12 +35,12 @@ public class PersonBO implements Serializable{
 		this.dr = dr;
 	}
 	
-	@JsonSerialize(using = ReferSerializer.class)
+	@ReferSerialTransfer
 	public String getId() {
 		return id;
 	}
 	
-	@JsonDeserialize(using = ReferDeserializer.class)
+	@ReferDeserialTransfer
 	public void setId(String id) {
 		this.id = id;
 	}
