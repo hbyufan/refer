@@ -237,9 +237,6 @@ public class BeanHelper {
 		try {
 			Method method = getInstance().getMethod(bean, propertyName, true);
 			if (propertyName != null && method == null) {
-				// Logger.error(String.format("No set method found! :
-				// [%s].[%s]",
-				// bean.getClass().getName(), propertyName));
 				return;
 			} else if (method == null) {
 				return;
